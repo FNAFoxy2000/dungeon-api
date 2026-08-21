@@ -1,0 +1,16 @@
+$body = @{
+    world = "minecraft:overworld"
+    schematic = "minialdea"
+    x = 100
+    y = 74
+    z = 100
+} | ConvertTo-Json
+
+Invoke-RestMethod `
+    -Uri "http://localhost:8080/dungeon/reset" `
+    -Method POST `
+     -Headers @{
+        Authorization = "Bearer dungeon-test-12345"
+    } `
+    -ContentType "application/json" `
+    -Body $body

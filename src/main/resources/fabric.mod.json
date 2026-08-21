@@ -1,0 +1,39 @@
+{
+	"schemaVersion": 1,
+	"id": "dungeon-api",
+	"version": "${version}",
+	"name": "Dungeon API",
+	"description": "Dungeon regeneration API",
+	"authors": [
+		"FNAFoxy2000"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/dungeon-api/icon.png",
+	"environment": "server",
+	"entrypoints": {
+		"main": [
+			"com.dungeonapi.DungeonAPI"
+		],
+		"client": [
+			"com.dungeonapi.client.DungeonAPIClient"
+		]
+	},
+	"mixins": [
+		"dungeon-api.mixins.json",
+		{
+			"config": "dungeon-api.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.2",
+		"minecraft": "~1.21.1",
+		"java": ">=21",
+		"fabric-api": "*",
+    	"worldedit": ">=7.3.8"
+	}
+}
